@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c5o80b2qewtgo"]
+
+[ext_resource type="Texture2D" uid="uid://bqq6akt1h5q0m" path="res://textures/unmowed sprite.png" id="1_yarb5"]
+[ext_resource type="Texture2D" uid="uid://bpicrbdorwqw1" path="res://textures/mowed sprite.png" id="2_3kunl"]
+[ext_resource type="Script" uid="uid://dupmrdodk11fw" path="res://scripts/grass.gd" id="3_3kunl"]
+[ext_resource type="AudioStream" uid="uid://cjsfxmnkyfqvf" path="res://audio/grass crunch.ogg" id="4_u68v2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u68v2"]
+texture = ExtResource("1_yarb5")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvbpf"]
+texture = ExtResource("2_3kunl")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_48p3m"]
+sources/0 = SubResource("TileSetAtlasSource_u68v2")
+sources/1 = SubResource("TileSetAtlasSource_cvbpf")
+
+[node name="Grass" type="TileMapLayer" unique_id=1434709681 groups=["tilemap"]]
+z_index = -2
+tile_set = SubResource("TileSet_48p3m")
+script = ExtResource("3_3kunl")
+
+[node name="GrassCrunch" type="AudioStreamPlayer" parent="." unique_id=639678576]
+stream = ExtResource("4_u68v2")
+volume_db = -17.0

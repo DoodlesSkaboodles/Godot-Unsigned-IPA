@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bwo3qv2roe04p"]
+
+[ext_resource type="Script" uid="uid://5gjxgcrcsxn3" path="res://scripts/sprinklerab.gd" id="1_fby21"]
+[ext_resource type="Texture2D" uid="uid://ch8f8t5cvff0i" path="res://textures/sprinkerrun0001.png" id="2_fby21"]
+[ext_resource type="PackedScene" uid="uid://cekxe73fyj3an" path="res://scenes/sprinkler.tscn" id="2_kqahr"]
+[ext_resource type="Texture2D" uid="uid://c8xmopbrdmqi4" path="res://textures/sprinkerrun0002.png" id="3_kqahr"]
+[ext_resource type="Texture2D" uid="uid://cvj2baks1h8ph" path="res://textures/sprinkler warning.png" id="4_fby21"]
+[ext_resource type="AudioStream" uid="uid://blr2bprnnsx8d" path="res://audio/warning.ogg" id="5_pp6kp"]
+[ext_resource type="AudioStream" uid="uid://c2wsqlu5m013o" path="res://audio/walking.ogg" id="7_4j5qc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ukfwh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fby21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kqahr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybw8e"]
+size = Vector2(33, 64)
+
+[sub_resource type="Animation" id="Animation_ukfwh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ybw8e"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dcyra"]
+_data = {
+&"RESET": SubResource("Animation_ukfwh"),
+&"blink": SubResource("Animation_ybw8e")
+}
+
+[node name="Sprinklerab" type="CharacterBody2D" unique_id=1816295671]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_fby21")
+sprinkler_scene = ExtResource("2_kqahr")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1522586299]
+position = Vector2(5, 4)
+sprite_frames = SubResource("SpriteFrames_ukfwh")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=445387078]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=319950102]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_ybw8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1017614789]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_ybw8e")
+
+[node name="Warning" type="Sprite2D" parent="." unique_id=1901495463]
+texture = ExtResource("4_fby21")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1183307586]
+libraries/ = SubResource("AnimationLibrary_dcyra")
+
+[node name="Warning2" type="AudioStreamPlayer" parent="." unique_id=1715105278]
+stream = ExtResource("5_pp6kp")
+
+[node name="Walking" type="AudioStreamPlayer" parent="." unique_id=1836925725]
+stream = ExtResource("7_4j5qc")
+parameters/looping = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cagap1ollkfom"]
+
+[ext_resource type="Script" uid="uid://jfyh3xqm2etu" path="res://scripts/mound_spawner.gd" id="1_f1u6s"]
+
+[node name="MoundSpawner" type="Node" unique_id=1394142141]
+script = ExtResource("1_f1u6s")

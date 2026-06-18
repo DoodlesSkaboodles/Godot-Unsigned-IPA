@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bjle85yddlvnk"
+path="res://.godot/imported/sprinker sound.ogg-7a8cfb73d4efd9e738e1ac79227a7d45.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/sprinker sound.ogg"
+dest_files=["res://.godot/imported/sprinker sound.ogg-7a8cfb73d4efd9e738e1ac79227a7d45.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

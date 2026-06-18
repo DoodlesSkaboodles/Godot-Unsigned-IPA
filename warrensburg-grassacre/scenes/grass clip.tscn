@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bsjcwn5dqtkd2"]
+
+[ext_resource type="Texture2D" uid="uid://mv6dq6xeucid" path="res://textures/grass/grass0001.png" id="1_pwdvb"]
+[ext_resource type="Texture2D" uid="uid://c4l7x3kkhvjfr" path="res://textures/grass/grass0002.png" id="2_lxjh8"]
+[ext_resource type="Texture2D" uid="uid://bbvb2fmb63mel" path="res://textures/grass/grass0003.png" id="3_j5v6l"]
+[ext_resource type="Texture2D" uid="uid://jskxqy5d5ifu" path="res://textures/grass/grass0004.png" id="4_xhg8y"]
+[ext_resource type="Script" uid="uid://cbg5q0fdlfmts" path="res://scripts/grass_clip.gd" id="5_lxjh8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5lgm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pwdvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lxjh8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j5v6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xhg8y")
+}],
+"loop": false,
+"name": &"clip",
+"speed": 12.0
+}]
+
+[node name="GrassClip" type="AnimatedSprite2D" unique_id=78156571]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_x5lgm")
+animation = &"clip"
+script = ExtResource("5_lxjh8")

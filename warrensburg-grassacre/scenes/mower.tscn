@@ -1,0 +1,260 @@
+[gd_scene format=3 uid="uid://drcapj70b2e17"]
+
+[ext_resource type="Script" uid="uid://bc8q167y0jegl" path="res://scripts/mower.gd" id="1_ob06m"]
+[ext_resource type="Texture2D" uid="uid://dhvgk4f041wby" path="res://textures/mower sprite animation0001.png" id="2_cepda"]
+[ext_resource type="AudioStream" uid="uid://np353x816xcn" path="res://audio/slowdown.ogg" id="2_hhxmo"]
+[ext_resource type="Texture2D" uid="uid://p6dio5m4yx7m" path="res://textures/mower sprite animation0002.png" id="3_7205g"]
+[ext_resource type="AudioStream" uid="uid://dkuevxrg3vcjt" path="res://audio/speedup.ogg" id="3_o50ee"]
+[ext_resource type="AudioStream" uid="uid://cmrung13eqydr" path="res://audio/engine.ogg" id="4_7205g"]
+[ext_resource type="AudioStream" uid="uid://n76a8i4civfu" path="res://audio/stunned.ogg" id="7_o50ee"]
+[ext_resource type="Texture2D" uid="uid://mv6dq6xeucid" path="res://textures/grass/grass0001.png" id="8_wd8sj"]
+[ext_resource type="Texture2D" uid="uid://c4l7x3kkhvjfr" path="res://textures/grass/grass0002.png" id="9_75yhc"]
+[ext_resource type="Texture2D" uid="uid://bbvb2fmb63mel" path="res://textures/grass/grass0003.png" id="10_notlc"]
+[ext_resource type="Texture2D" uid="uid://jskxqy5d5ifu" path="res://textures/grass/grass0004.png" id="11_c7slm"]
+[ext_resource type="Script" uid="uid://cse7v3aj4anth" path="res://scripts/animated_sprite_2d.gd" id="12_75yhc"]
+[ext_resource type="FontFile" uid="uid://1rxtow8fc8xj" path="res://fonts/BlackOpsOne-Regular.ttf" id="13_notlc"]
+[ext_resource type="AudioStream" uid="uid://d06ixh78k1nr" path="res://audio/bump sound.ogg" id="14_c7slm"]
+[ext_resource type="AudioStream" uid="uid://c7iy8x87x0ni5" path="res://audio/impact1.ogg" id="15_kdmql"]
+[ext_resource type="AudioStream" uid="uid://7n1cos8h3fjh" path="res://audio/impact2.ogg" id="16_frevh"]
+[ext_resource type="AudioStream" uid="uid://cvv21gcg1apew" path="res://audio/impact3.ogg" id="17_cu06h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a2gl2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cepda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7205g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7205g"]
+size = Vector2(40.999996, 77)
+
+[sub_resource type="Animation" id="Animation_hhxmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5707964]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o50ee"]
+resource_name = "spin"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5707964, -4.71238898038469]
+}
+
+[sub_resource type="Animation" id="Animation_kdmql"]
+resource_name = "squash"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(1.2, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0u6en"]
+_data = {
+&"RESET": SubResource("Animation_hhxmo"),
+&"spin": SubResource("Animation_o50ee"),
+&"squash": SubResource("Animation_kdmql")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2avak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wd8sj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_75yhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_notlc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c7slm")
+}],
+"loop": false,
+"name": &"clip",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_c7slm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-27, -63)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2avak"]
+resource_name = "score"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(-42, -16), Vector2(-42, -63)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(0.25, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kqpg"]
+_data = {
+&"RESET": SubResource("Animation_c7slm"),
+&"score": SubResource("Animation_2avak")
+}
+
+[node name="Mower" type="CharacterBody2D" unique_id=780075385 groups=["mower"]]
+z_index = 1
+collision_layer = 2
+script = ExtResource("1_ob06m")
+
+[node name="Slowdown" type="AudioStreamPlayer" parent="." unique_id=2100179869]
+stream = ExtResource("2_hhxmo")
+volume_db = -80.0
+
+[node name="Speedup" type="AudioStreamPlayer" parent="." unique_id=811161215]
+stream = ExtResource("3_o50ee")
+volume_db = -80.0
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1983160693]
+position = Vector2(-2, 6)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_a2gl2")
+autoplay = "default"
+frame_progress = 0.14677905
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=259670874]
+position = Vector2(0.5000001, 0.4999997)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_7205g")
+
+[node name="Engine" type="AudioStreamPlayer" parent="." unique_id=803895365]
+stream = ExtResource("4_7205g")
+autoplay = true
+parameters/looping = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1645026462]
+libraries/ = SubResource("AnimationLibrary_0u6en")
+
+[node name="Stunned" type="AudioStreamPlayer" parent="." unique_id=1334098721]
+stream = ExtResource("7_o50ee")
+
+[node name="GrassClip" type="AnimatedSprite2D" parent="." unique_id=371322849]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(59, 4)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_2avak")
+animation = &"clip"
+script = ExtResource("12_75yhc")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=589805252]
+libraries/ = SubResource("AnimationLibrary_1kqpg")
+
+[node name="Label" type="Label" parent="." unique_id=1198074625]
+modulate = Color(1, 1, 1, 0)
+offset_left = -27.0
+offset_top = -63.0
+offset_right = 54.0
+offset_bottom = -24.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("13_notlc")
+theme_override_font_sizes/font_size = 30
+text = "1000"
+
+[node name="BumpSound" type="AudioStreamPlayer" parent="." unique_id=215710049]
+stream = ExtResource("14_c7slm")
+volume_db = -5.0
+
+[node name="Impact1" type="AudioStreamPlayer" parent="." unique_id=735320226]
+stream = ExtResource("15_kdmql")
+
+[node name="Impact2" type="AudioStreamPlayer" parent="." unique_id=1936845266]
+stream = ExtResource("16_frevh")
+
+[node name="Impact3" type="AudioStreamPlayer" parent="." unique_id=2033978826]
+stream = ExtResource("17_cu06h")
+
+[connection signal="animation_finished" from="GrassClip" to="GrassClip" method="_on_animation_finished"]

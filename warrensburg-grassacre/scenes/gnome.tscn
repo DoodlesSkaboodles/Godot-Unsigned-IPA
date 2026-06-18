@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://25qut3b8eygp"]
+
+[ext_resource type="Texture2D" uid="uid://bvtwshitusw88" path="res://textures/gnome.png" id="1_vhpng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcl7q"]
+size = Vector2(48, 66)
+
+[node name="Gnome" type="StaticBody2D" unique_id=1918500138 groups=["architecture"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1358251696]
+texture = ExtResource("1_vhpng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1708345135]
+shape = SubResource("RectangleShape2D_hcl7q")

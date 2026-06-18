@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cl6wl41lwn2k"]
+
+[ext_resource type="Texture2D" uid="uid://b54n5qnln7pj6" path="res://textures/farm.png" id="1_akt7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqty4"]
+size = Vector2(184, 88)
+
+[node name="Bed" type="StaticBody2D" unique_id=1918500138 groups=["architecture"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1358251696]
+texture = ExtResource("1_akt7f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=973608057]
+position = Vector2(-4, -4)
+shape = SubResource("RectangleShape2D_fqty4")

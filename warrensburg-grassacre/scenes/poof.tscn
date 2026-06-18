@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://muvwm83wis3l"]
+
+[ext_resource type="Texture2D" uid="uid://8rsdks61154g" path="res://textures/boom/boom0001.png" id="1_8dnwt"]
+[ext_resource type="Texture2D" uid="uid://13po3x0mhvab" path="res://textures/boom/boom0002.png" id="2_x4h06"]
+[ext_resource type="Texture2D" uid="uid://btfujvobfrvd7" path="res://textures/boom/boom0003.png" id="3_8lyqc"]
+[ext_resource type="Texture2D" uid="uid://cccva3qxtwek4" path="res://textures/boom/boom0004.png" id="4_6fh1w"]
+[ext_resource type="Texture2D" uid="uid://wyueh85jbj41" path="res://textures/boom/boom0005.png" id="5_jng2k"]
+[ext_resource type="Texture2D" uid="uid://dcunlrap3l32a" path="res://textures/boom/boom0006.png" id="6_r3bye"]
+[ext_resource type="Texture2D" uid="uid://dpboede7svq7f" path="res://textures/boom/boom0007.png" id="7_chy2v"]
+[ext_resource type="Texture2D" uid="uid://dkqo4vxstrmoh" path="res://textures/boom/boom0008.png" id="8_3oxuh"]
+[ext_resource type="Script" uid="uid://bowqog27cxvhg" path="res://scripts/poof.gd" id="9_x4h06"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcohr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8dnwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x4h06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8lyqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6fh1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jng2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_r3bye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_chy2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3oxuh")
+}],
+"loop": false,
+"name": &"poof",
+"speed": 24.0
+}]
+
+[node name="Poof" type="AnimatedSprite2D" unique_id=418964466]
+sprite_frames = SubResource("SpriteFrames_kcohr")
+animation = &"poof"
+script = ExtResource("9_x4h06")

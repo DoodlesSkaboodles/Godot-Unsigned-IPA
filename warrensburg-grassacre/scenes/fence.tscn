@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dhfnh8ym14ont"]
+
+[ext_resource type="Texture2D" uid="uid://do8664kd8ouk8" path="res://textures/fence.png" id="1_tphf0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehqem"]
+size = Vector2(66, 46)
+
+[node name="Fence" type="StaticBody2D" unique_id=1918500138 groups=["architecture"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1358251696]
+position = Vector2(6, 4)
+texture = ExtResource("1_tphf0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1708345135]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_ehqem")

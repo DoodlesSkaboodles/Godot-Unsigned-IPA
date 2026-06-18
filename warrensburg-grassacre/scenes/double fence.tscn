@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://877qx8rq0aa5"]
+
+[ext_resource type="PackedScene" uid="uid://dhfnh8ym14ont" path="res://scenes/fence.tscn" id="1_dtd4l"]
+
+[node name="DoubleFence" type="Node2D" unique_id=1383320564]
+
+[node name="Fence" parent="." unique_id=1918500138 instance=ExtResource("1_dtd4l")]
+
+[node name="Fence2" parent="." unique_id=1442080971 instance=ExtResource("1_dtd4l")]
+position = Vector2(230, 0)

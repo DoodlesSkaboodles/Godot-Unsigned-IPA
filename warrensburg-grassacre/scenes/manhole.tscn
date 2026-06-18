@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://nr7myrlj2xqq"]
+
+[ext_resource type="Texture2D" uid="uid://bhr5fs7xk88rn" path="res://textures/manhole.png" id="1_l7oxa"]
+[ext_resource type="Script" uid="uid://cnk8j2w642pb8" path="res://scripts/manhole.gd" id="1_ndn10"]
+[ext_resource type="AudioStream" uid="uid://cbu51050jwqbx" path="res://audio/sewer.ogg" id="3_b7ksx"]
+[ext_resource type="Texture2D" uid="uid://dx37hjs2c6qgu" path="res://textures/e button.png" id="4_n61f6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndn10"]
+radius = 53.235325
+
+[node name="Manhole" type="Area2D" unique_id=505577448 groups=["architecture"]]
+collision_mask = 2
+script = ExtResource("1_ndn10")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1899081230]
+position = Vector2(5, 6)
+texture = ExtResource("1_l7oxa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2061102216]
+shape = SubResource("CircleShape2D_ndn10")
+
+[node name="Sewer" type="AudioStreamPlayer" parent="." unique_id=666340900]
+stream = ExtResource("3_b7ksx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1197751013]
+visible = false
+z_index = 1
+position = Vector2(5, -46)
+texture = ExtResource("4_n61f6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

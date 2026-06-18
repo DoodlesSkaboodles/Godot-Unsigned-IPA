@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b0c06bynrptb1"]
+
+[ext_resource type="Texture2D" uid="uid://6ximre5la7j3" path="res://textures/power box.png" id="1_25v0x"]
+[ext_resource type="Script" uid="uid://d3a3wmliy01ky" path="res://scripts/power_box.gd" id="1_ygunp"]
+[ext_resource type="AudioStream" uid="uid://37aqqnd8wkl7" path="res://audio/destroy.ogg" id="3_ym3lb"]
+[ext_resource type="AudioStream" uid="uid://cotxnb5hhoe1m" path="res://audio/place.ogg" id="4_721dd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygunp"]
+size = Vector2(48, 48)
+
+[node name="PowerBox" type="Area2D" unique_id=1843925908 groups=["powerbox"]]
+collision_mask = 2
+script = ExtResource("1_ygunp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1157649253]
+position = Vector2(0, 9)
+texture = ExtResource("1_25v0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=352362132]
+shape = SubResource("RectangleShape2D_ygunp")
+
+[node name="Destroy" type="AudioStreamPlayer" parent="." unique_id=619018063]
+stream = ExtResource("3_ym3lb")
+
+[node name="Place" type="AudioStreamPlayer" parent="." unique_id=778010908]
+stream = ExtResource("4_721dd")
+autoplay = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

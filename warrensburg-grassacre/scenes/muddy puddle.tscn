@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://u0tu662gne1"]
+
+[ext_resource type="Texture2D" uid="uid://bq2orxdddqcqv" path="res://textures/muddy puddle.png" id="1_hegpm"]
+[ext_resource type="Script" uid="uid://dgsnmmrkvtjcj" path="res://scripts/muddy_puddle.gd" id="1_m8qov"]
+
+[node name="MuddyPuddle" type="Area2D" unique_id=1412706414]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_m8qov")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1430941540 groups=["architecture"]]
+position = Vector2(1, 0)
+texture = ExtResource("1_hegpm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=941855534]
+polygon = PackedVector2Array(-9, -69, -21, -68, -40, -47, -71, -34, -78, -15, -64, 14, -64, 42, -52, 53, -30, 52, -13, 64, 12, 66, 30, 53, 54, 43, 66, 30, 65, 9, 71, -2, 75, -17, 67, -32, 55, -38, 43, -48, 27, -52, 17, -57, 6, -66)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

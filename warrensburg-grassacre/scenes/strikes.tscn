@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://myia27lyniv0"]
+
+[ext_resource type="Script" uid="uid://cvns85kdc6e6m" path="res://scripts/strikes.gd" id="1_k5p6h"]
+[ext_resource type="AudioStream" uid="uid://brmlqp1oraeej" path="res://audio/strike.ogg" id="2_co5ar"]
+
+[node name="Strikes" type="Node" unique_id=946941302 groups=["strikes"]]
+script = ExtResource("1_k5p6h")
+
+[node name="Strike" type="AudioStreamPlayer" parent="." unique_id=1953484831]
+stream = ExtResource("2_co5ar")

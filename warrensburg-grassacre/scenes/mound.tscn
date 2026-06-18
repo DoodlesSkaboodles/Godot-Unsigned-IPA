@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://bpx36n734lfqs"]
+
+[ext_resource type="Script" uid="uid://rmh1f4bb4mti" path="res://scripts/mound.gd" id="1_5qmyw"]
+[ext_resource type="Texture2D" uid="uid://ki2c25mjydvd" path="res://textures/mound animation/mound animation0001.png" id="2_0ppnk"]
+[ext_resource type="Texture2D" uid="uid://c5lpbvhoqijco" path="res://textures/mound animation/mound animation0002.png" id="3_8ed1f"]
+[ext_resource type="Texture2D" uid="uid://bnc2cay02bqnk" path="res://textures/mound warning.png" id="3_nlufo"]
+[ext_resource type="Texture2D" uid="uid://b4rs4s0xlf3fe" path="res://textures/mound animation/mound animation0003.png" id="4_2tha5"]
+[ext_resource type="AudioStream" uid="uid://blr2bprnnsx8d" path="res://audio/warning.ogg" id="4_pl0br"]
+[ext_resource type="Texture2D" uid="uid://cvrnwwggvy8cs" path="res://textures/mound animation/mound animation0004.png" id="5_6aock"]
+[ext_resource type="AudioStream" uid="uid://37aqqnd8wkl7" path="res://audio/destroy.ogg" id="5_nlufo"]
+[ext_resource type="Texture2D" uid="uid://dende05b1n8s5" path="res://textures/mound animation/mound animation0005.png" id="6_21v7i"]
+[ext_resource type="Texture2D" uid="uid://fyymh3sc77uj" path="res://textures/mound animation/mound animation0006.png" id="7_bct0p"]
+[ext_resource type="Texture2D" uid="uid://cs0legqsv8jcb" path="res://textures/mound animation/mound animation0007.png" id="8_g0h7l"]
+[ext_resource type="Texture2D" uid="uid://4hl17pj6cbwj" path="res://textures/mound animation/mound animation0008.png" id="9_hmxed"]
+[ext_resource type="Texture2D" uid="uid://kacx4tfsalku" path="res://textures/mound animation/mound animation0009.png" id="10_w0dty"]
+[ext_resource type="Texture2D" uid="uid://bphj1at0fw3ph" path="res://textures/mound animation/mound animation0010.png" id="11_mp7x2"]
+[ext_resource type="Texture2D" uid="uid://cxquobv5getxy" path="res://textures/mound animation/mound animation0011.png" id="12_38f4v"]
+[ext_resource type="Texture2D" uid="uid://ctcovh8lxysvt" path="res://textures/mound animation/mound animation0012.png" id="13_v71yp"]
+[ext_resource type="Texture2D" uid="uid://dxnjhu1ra0ayf" path="res://textures/mound animation/mound animation0013.png" id="14_s33ly"]
+[ext_resource type="Texture2D" uid="uid://dp6t87af0bdp1" path="res://textures/mound animation/mound animation0014.png" id="15_u0yby"]
+[ext_resource type="Texture2D" uid="uid://chu2w6d058pyy" path="res://textures/mound animation/mound animation0015.png" id="16_hpdhs"]
+[ext_resource type="Texture2D" uid="uid://cl6l1ojlg4d1r" path="res://textures/mound animation/mound animation0016.png" id="17_48ggn"]
+[ext_resource type="Texture2D" uid="uid://bgvdb70b1fjlo" path="res://textures/mound animation/mound animation0017.png" id="18_s4vqj"]
+[ext_resource type="Texture2D" uid="uid://cvyufosvbhkec" path="res://textures/mound animation/mound animation0018.png" id="19_x71uy"]
+[ext_resource type="Texture2D" uid="uid://dcm7vwvdv300g" path="res://textures/mound animation/mound animation0019.png" id="20_npbwh"]
+[ext_resource type="AudioStream" uid="uid://dem8q2ulat2c1" path="res://audio/dirt.ogg" id="24_8ed1f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ab7e3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ppnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8ed1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2tha5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6aock")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_21v7i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bct0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g0h7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hmxed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_w0dty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mp7x2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_38f4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_v71yp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_s33ly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_u0yby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hpdhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_48ggn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_s4vqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_x71uy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_npbwh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qmyw"]
+size = Vector2(57, 47.540886)
+
+[sub_resource type="Animation" id="Animation_ukfwh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ybw8e"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8p6e0"]
+_data = {
+&"RESET": SubResource("Animation_ukfwh"),
+&"blink": SubResource("Animation_ybw8e")
+}
+
+[node name="Mound" type="Area2D" unique_id=1360135595]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_5qmyw")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1582594017]
+position = Vector2(6, -36.5)
+sprite_frames = SubResource("SpriteFrames_ab7e3")
+autoplay = "default"
+frame = 18
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=876268188]
+position = Vector2(0.5, -23.5)
+scale = Vector2(1, 1.0096573)
+shape = SubResource("RectangleShape2D_5qmyw")
+
+[node name="Warning" type="Sprite2D" parent="." unique_id=521056251]
+texture = ExtResource("3_nlufo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=845646801]
+libraries/ = SubResource("AnimationLibrary_8p6e0")
+
+[node name="Warning2" type="AudioStreamPlayer" parent="." unique_id=302114412]
+stream = ExtResource("4_pl0br")
+
+[node name="Destroy" type="AudioStreamPlayer" parent="." unique_id=247117831]
+stream = ExtResource("5_nlufo")
+
+[node name="Dirt" type="AudioStreamPlayer" parent="." unique_id=1071101732]
+stream = ExtResource("24_8ed1f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

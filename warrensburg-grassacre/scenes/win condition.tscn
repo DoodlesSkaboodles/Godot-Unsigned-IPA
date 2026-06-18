@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7wx402ebmhqx"]
+
+[ext_resource type="Script" uid="uid://dohnhxvvlaqna" path="res://scripts/win_condition.gd" id="1_vf4bc"]
+
+[node name="WinCondition" type="Node" unique_id=367222606]
+script = ExtResource("1_vf4bc")

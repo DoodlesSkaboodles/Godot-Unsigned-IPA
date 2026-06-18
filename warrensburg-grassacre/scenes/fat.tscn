@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://c0u8tqyoji27n"]
+
+[ext_resource type="Script" uid="uid://6ntd0ah4dcqn" path="res://scripts/fat.gd" id="1_e78qg"]
+[ext_resource type="Texture2D" uid="uid://dkyijui3o1qmo" path="res://textures/fatrun0001.png" id="1_mrsqb"]
+[ext_resource type="Texture2D" uid="uid://c41coofjrqrwp" path="res://textures/fatrun0002.png" id="2_e78qg"]
+[ext_resource type="Texture2D" uid="uid://difqilumqnp55" path="res://textures/fat warning.png" id="4_e78qg"]
+[ext_resource type="AudioStream" uid="uid://blr2bprnnsx8d" path="res://audio/warning.ogg" id="5_vk0k2"]
+[ext_resource type="AudioStream" uid="uid://c2wsqlu5m013o" path="res://audio/walking.ogg" id="6_xtruy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ukfwh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mrsqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e78qg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mrsqb")
+}],
+"loop": true,
+"name": &"paused",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybw8e"]
+size = Vector2(33, 64)
+
+[sub_resource type="Animation" id="Animation_ukfwh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ybw8e"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dcyra"]
+_data = {
+&"RESET": SubResource("Animation_ukfwh"),
+&"blink": SubResource("Animation_ybw8e")
+}
+
+[node name="Fat" type="CharacterBody2D" unique_id=1816295671]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_e78qg")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1522586299]
+position = Vector2(5, 7)
+sprite_frames = SubResource("SpriteFrames_ukfwh")
+animation = &"paused"
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=445387078]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=319950102]
+position = Vector2(-0.5, -1)
+scale = Vector2(-1.6362996, 1.1275439)
+shape = SubResource("RectangleShape2D_ybw8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1017614789]
+position = Vector2(-0.5, -1)
+scale = Vector2(-1.6362996, 1.1275439)
+shape = SubResource("RectangleShape2D_ybw8e")
+
+[node name="Warning" type="Sprite2D" parent="." unique_id=1901495463]
+texture = ExtResource("4_e78qg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1183307586]
+libraries/ = SubResource("AnimationLibrary_dcyra")
+
+[node name="Warning2" type="AudioStreamPlayer" parent="." unique_id=1715105278]
+stream = ExtResource("5_vk0k2")
+
+[node name="Walking" type="AudioStreamPlayer" parent="." unique_id=525403434]
+stream = ExtResource("6_xtruy")
+pitch_scale = 0.75
+parameters/looping = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

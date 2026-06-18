@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dmhinbdxwqyo7"]
+
+[ext_resource type="Script" uid="uid://chlqekw3c2xjq" path="res://scripts/puddle.gd" id="1_qlq6d"]
+[ext_resource type="Texture2D" uid="uid://c2txir8mfthf6" path="res://textures/puddle.png" id="1_sj7di"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlq6d"]
+size = Vector2(169, 69)
+
+[node name="Puddle" type="Area2D" unique_id=102442191 groups=["architecture"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_qlq6d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=564253527]
+texture = ExtResource("1_sj7di")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=427998689]
+position = Vector2(-6.5, -5.5)
+shape = SubResource("RectangleShape2D_qlq6d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

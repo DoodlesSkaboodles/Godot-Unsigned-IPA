@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cjiodns8a871y"]
+
+[ext_resource type="Texture2D" uid="uid://cik4wm70mkgdi" path="res://textures/pond.png" id="1_4h7al"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hvmvx"]
+radius = 86.023254
+
+[node name="Pond" type="StaticBody2D" unique_id=1251999080]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=854238103]
+texture = ExtResource("1_4h7al")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1765461638]
+position = Vector2(-6, -6)
+shape = SubResource("CircleShape2D_hvmvx")

@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ct2baatqxnvw5"]
+
+[node name="Camera" type="Camera2D" unique_id=1619153827 groups=["camera"]]
+anchor_mode = 0

@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://dvt5b0xfryn4f"]
+
+[ext_resource type="Script" uid="uid://c3kavco4vdnmx" path="res://scripts/weed.gd" id="1_3sedy"]
+[ext_resource type="Texture2D" uid="uid://dc67251b8rqg6" path="res://textures/weed animation/weed animation0001.png" id="2_wq1p3"]
+[ext_resource type="AudioStream" uid="uid://bsut4pdwoi0in" path="res://audio/collect.ogg" id="3_egm0q"]
+[ext_resource type="Texture2D" uid="uid://biqb7d2uxlq5y" path="res://textures/weed animation/weed animation0002.png" id="3_x18yp"]
+[ext_resource type="Texture2D" uid="uid://bw5qduolf77t1" path="res://textures/weed animation/weed animation0003.png" id="4_3qybx"]
+[ext_resource type="AudioStream" uid="uid://bccvfo8rxxaa" path="res://audio/placedown.ogg" id="4_uqta8"]
+[ext_resource type="Texture2D" uid="uid://de3tqv1ekuwgg" path="res://textures/weed animation/weed animation0004.png" id="5_3gxd6"]
+[ext_resource type="Texture2D" uid="uid://b7fvhx7vqwi6c" path="res://textures/weed animation/weed animation0005.png" id="6_15mkw"]
+[ext_resource type="Texture2D" uid="uid://cb6jthluey3nw" path="res://textures/weed animation/weed animation0006.png" id="7_r5hr8"]
+[ext_resource type="Texture2D" uid="uid://deqfgxg6twfux" path="res://textures/weed animation/weed animation0007.png" id="8_7pl8k"]
+[ext_resource type="Texture2D" uid="uid://b2b6wccp8lv6i" path="res://textures/weed animation/weed animation0008.png" id="9_4mqcc"]
+[ext_resource type="Texture2D" uid="uid://busx5rb35w1xk" path="res://textures/weed animation/weed animation0009.png" id="10_ftdme"]
+[ext_resource type="Texture2D" uid="uid://censbgv45ijee" path="res://textures/weed animation/weed animation0010.png" id="11_0dc1u"]
+[ext_resource type="Texture2D" uid="uid://445xir7gksnq" path="res://textures/weed animation/weed animation0011.png" id="12_1in5x"]
+[ext_resource type="Texture2D" uid="uid://c007mwipdrqya" path="res://textures/weed animation/weed animation0012.png" id="13_ahlst"]
+[ext_resource type="Texture2D" uid="uid://h83tspi43lno" path="res://textures/weed animation/weed animation0013.png" id="14_o0dca"]
+[ext_resource type="Texture2D" uid="uid://788lvoaewc18" path="res://textures/weed animation/weed animation0014.png" id="15_ev718"]
+[ext_resource type="Texture2D" uid="uid://bnlxsldhct05j" path="res://textures/weed animation/weed animation0015.png" id="16_v1k8t"]
+[ext_resource type="Texture2D" uid="uid://svw01gbl0pgb" path="res://textures/weed animation/weed animation0016.png" id="17_0gnia"]
+[ext_resource type="Texture2D" uid="uid://dta2ymoxdq7ne" path="res://textures/weed animation/weed animation0017.png" id="18_dpd8w"]
+[ext_resource type="Texture2D" uid="uid://cbjdounht48ip" path="res://textures/weed animation/weed animation0018.png" id="19_i1gar"]
+[ext_resource type="Texture2D" uid="uid://bsw2cfnwyna8l" path="res://textures/weed animation/weed animation0019.png" id="20_3ihbs"]
+[ext_resource type="Texture2D" uid="uid://brdva8vcnqccp" path="res://textures/weed animation/weed animation0020.png" id="21_82a6j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pg1ae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wq1p3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x18yp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3qybx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3gxd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_15mkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r5hr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7pl8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4mqcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ftdme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0dc1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1in5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ahlst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_o0dca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ev718")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_v1k8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0gnia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dpd8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_i1gar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_3ihbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_82a6j")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sedy"]
+size = Vector2(61, 55)
+
+[node name="Weed" type="Area2D" unique_id=1244638253 groups=["weed"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3sedy")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1220177092]
+position = Vector2(-2, -30)
+sprite_frames = SubResource("SpriteFrames_pg1ae")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=32996172]
+position = Vector2(-2, -27)
+shape = SubResource("RectangleShape2D_3sedy")
+
+[node name="Collect" type="AudioStreamPlayer" parent="." unique_id=739633688]
+stream = ExtResource("3_egm0q")
+volume_db = -20.0
+
+[node name="Placedown" type="AudioStreamPlayer" parent="." unique_id=888213544]
+stream = ExtResource("4_uqta8")
+autoplay = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

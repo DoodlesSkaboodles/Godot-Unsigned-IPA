@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://daapm1tjietod"
+path="res://.godot/imported/crowd cheer.ogg-cf61e549af31485b792be2033a444df8.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/crowd cheer.ogg"
+dest_files=["res://.godot/imported/crowd cheer.ogg-cf61e549af31485b792be2033a444df8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

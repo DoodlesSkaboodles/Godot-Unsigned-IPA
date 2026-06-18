@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cgsw0uubecnib"]
+
+[ext_resource type="Texture2D" uid="uid://dnp3qgajvfvax" path="res://textures/gate.png" id="1_jjaph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqty4"]
+size = Vector2(184, 40)
+
+[node name="SecurityGate" type="StaticBody2D" unique_id=1918500138 groups=["architecture"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1358251696]
+texture = ExtResource("1_jjaph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=973608057]
+position = Vector2(-4, -4)
+shape = SubResource("RectangleShape2D_fqty4")

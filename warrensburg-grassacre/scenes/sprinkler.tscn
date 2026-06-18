@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cekxe73fyj3an"]
+
+[ext_resource type="Script" uid="uid://c26i1kunh1gtl" path="res://scripts/sprinkler.gd" id="1_uquc4"]
+[ext_resource type="Texture2D" uid="uid://btqgeatq6sa1a" path="res://textures/sprinkler0001.png" id="2_fbdpd"]
+[ext_resource type="Texture2D" uid="uid://bp66mcqty7huw" path="res://textures/sprinkler0002.png" id="3_7hj8o"]
+[ext_resource type="AudioStream" uid="uid://bjle85yddlvnk" path="res://audio/sprinker sound.ogg" id="3_gk1tc"]
+[ext_resource type="AudioStream" uid="uid://cotxnb5hhoe1m" path="res://audio/place.ogg" id="4_jvrxl"]
+[ext_resource type="AudioStream" uid="uid://37aqqnd8wkl7" path="res://audio/destroy.ogg" id="5_263ca"]
+[ext_resource type="Texture2D" uid="uid://uine3v20pq8m" path="res://textures/sprinkler indicator/indicator0001.png" id="7_42mc3"]
+[ext_resource type="Texture2D" uid="uid://diok6akwy2mat" path="res://textures/sprinkler indicator/indicator0002.png" id="8_nc36u"]
+[ext_resource type="Texture2D" uid="uid://d3togr667s1ar" path="res://textures/sprinkler indicator/indicator0003.png" id="9_d84ff"]
+[ext_resource type="Texture2D" uid="uid://b5d8rnuh68qnb" path="res://textures/sprinkler indicator/indicator0004.png" id="10_yojuh"]
+[ext_resource type="Texture2D" uid="uid://d2u1oyc8y4f1c" path="res://textures/sprinkler indicator/indicator0005.png" id="11_5qonu"]
+[ext_resource type="Texture2D" uid="uid://dro80yc67t56u" path="res://textures/sprinkler indicator/indicator0006.png" id="12_c6r63"]
+[ext_resource type="Texture2D" uid="uid://dld736ovpl2gj" path="res://textures/sprinkler indicator/indicator0007.png" id="13_rx61p"]
+[ext_resource type="Texture2D" uid="uid://dl5osv85piitu" path="res://textures/sprinkler indicator/indicator0008.png" id="14_3xnfe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c2sjt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_42mc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nc36u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_d84ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yojuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5qonu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_c6r63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rx61p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3xnfe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vlqdd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fbdpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7hj8o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fbdpd"]
+radius = 24.020824
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uquc4"]
+radius = 56.32051
+
+[node name="Sprinkler" type="Area2D" unique_id=868183388]
+collision_mask = 2
+script = ExtResource("1_uquc4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=189765309]
+position = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_c2sjt")
+autoplay = "default"
+frame_progress = 0.0116114905
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1554945109]
+sprite_frames = SubResource("SpriteFrames_vlqdd")
+autoplay = "default"
+frame_progress = 0.3421692
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=249964049]
+shape = SubResource("CircleShape2D_fbdpd")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=1834605649]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1749937589]
+shape = SubResource("CircleShape2D_uquc4")
+
+[node name="SprinkerSound" type="AudioStreamPlayer" parent="." unique_id=988453490]
+stream = ExtResource("3_gk1tc")
+volume_db = -15.0
+autoplay = true
+parameters/looping = true
+
+[node name="Place" type="AudioStreamPlayer" parent="." unique_id=1285301995]
+stream = ExtResource("4_jvrxl")
+autoplay = true
+
+[node name="Destroy" type="AudioStreamPlayer" parent="." unique_id=81376662]
+stream = ExtResource("5_263ca")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

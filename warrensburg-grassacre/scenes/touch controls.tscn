@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bitmqbi0bwgp2"]
+
+[ext_resource type="Script" uid="uid://bbiyng5kuvtwc" path="res://scripts/touch_controls.gd" id="1_4n2tk"]
+[ext_resource type="Texture2D" uid="uid://cadq68pb6xi7s" path="res://textures/brake button.png" id="1_dm6hk"]
+[ext_resource type="Texture2D" uid="uid://bwpevyav06k74" path="res://textures/use button.png" id="2_4n2tk"]
+[ext_resource type="Texture2D" uid="uid://cvaqlawkv5eff" path="res://textures/accelerate button.png" id="3_dj0x5"]
+
+[node name="TouchControls" type="CanvasLayer" unique_id=1454395542]
+script = ExtResource("1_4n2tk")
+
+[node name="TouchLeft" type="Control" parent="." unique_id=1683441890]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+
+[node name="TouchBrake" type="Button" parent="." unique_id=1412909010]
+offset_left = 1546.0
+offset_top = 756.0
+offset_right = 1757.0
+offset_bottom = 967.0
+focus_mode = 0
+icon = ExtResource("1_dm6hk")
+flat = true
+
+[node name="TouchUse" type="Button" parent="." unique_id=1326077309]
+offset_left = 1690.0
+offset_top = 540.0
+offset_right = 1859.0
+offset_bottom = 709.0
+focus_mode = 0
+icon = ExtResource("2_4n2tk")
+flat = true
+
+[node name="TouchAccelerate" type="Button" parent="." unique_id=309858491]
+offset_left = 1377.0
+offset_top = 511.0
+offset_right = 1588.0
+offset_bottom = 722.0
+focus_mode = 0
+icon = ExtResource("3_dj0x5")
+flat = true

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ckxexcd2533k7"]
+
+[ext_resource type="Texture2D" uid="uid://7bbp161fv5bj" path="res://textures/small bush.png" id="2_p74v0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcl7q"]
+size = Vector2(80, 91)
+
+[node name="Small Bush" type="StaticBody2D" unique_id=1918500138 groups=["architecture"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1358251696]
+texture = ExtResource("2_p74v0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1708345135]
+position = Vector2(-6, -5.5)
+shape = SubResource("RectangleShape2D_hcl7q")

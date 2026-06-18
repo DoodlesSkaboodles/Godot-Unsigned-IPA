@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cfcq3d35a84ap"]
+
+[ext_resource type="Script" uid="uid://ckvqiuvkk55y1" path="res://scripts/win_screen.gd" id="1_64bwf"]
+
+[node name="WinScreen" type="Node2D" unique_id=43103344]
+script = ExtResource("1_64bwf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=998129294]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=524263862]
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = 774.0
+offset_top = 273.0
+offset_right = 1134.0
+offset_bottom = 376.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 75
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="." unique_id=1485309269]
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = 774.0
+offset_top = 384.0
+offset_right = 1134.0
+offset_bottom = 487.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 75
+text = "Score: #####"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Strikes" type="Label" parent="." unique_id=2009871350]
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = 713.0
+offset_top = 494.0
+offset_right = 1195.0
+offset_bottom = 597.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 75
+text = "Strikes: #"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry" type="Button" parent="." unique_id=1409872441]
+offset_left = 843.0
+offset_top = 729.0
+offset_right = 1076.0
+offset_bottom = 806.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 50
+action_mode = 0
+text = "Retry"
+flat = true
+
+[node name="Menu" type="Button" parent="." unique_id=615607306]
+offset_left = 843.0
+offset_top = 826.0
+offset_right = 1076.0
+offset_bottom = 903.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 50
+action_mode = 0
+text = "Menu"
+flat = true
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

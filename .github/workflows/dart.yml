@@ -10,7 +10,7 @@ jobs:
     runs-on: macos-latest
 
     env:
-      GODOT_VERSION: "4.6.2"
+      GODOT_VERSION: "4.6.3"
       GODOT_FLAVOR: "stable"
       EXPORT_NAME: "my_ios_project"
 
